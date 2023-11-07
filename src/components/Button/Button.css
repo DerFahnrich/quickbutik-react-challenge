@@ -1,0 +1,25 @@
+.view-order-button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 4px 8px;
+}
+
+.view-order-button.accent {
+  background-color: var(--accent-color);
+}
+
+.view-order-button.success {
+  background-color: var(--success-color);
+  color: black;
+}
+
+.view-order-button.danger {
+  background-color: var(--danger-color);
+}
+
+.view-order-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}

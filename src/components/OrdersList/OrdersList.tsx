@@ -1,19 +1,43 @@
 // use this function to fetch the orders.
+import { useEffect, useState } from "react";
 import { getOrders } from "../../api/api";
+import { Button } from "../Button";
 
-export function OrdersList(){
+interface IProduct {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+}
 
-  /**
-   * TODO: Implement the OrdersList component.
-   *
-   * Fetch the orders from the API and display them in a list/table.
-   *
-   * use the imported function to fetch the orders from the API: getOrders()
-   */
+interface IOrder {
+  createdAt: string;
+  first_name: string;
+  id: number;
+  products: IProduct[];
+  status: string;
+}
+
+export function OrdersList() {
+  const [orders, setOrders] = useState<IOrder[] | null>(null);
+
+  const getOrdersAsync = async () => {
+    const orders: IOrder[] = await getOrders();
+    setOrders(orders);
+  };
+
+  const handleOnClick = () => {
+    alert("Hey");
+  };
+
+  useEffect(() => {
+    getOrdersAsync();
+  }, []);
 
   return (
     <>
       <h1>Orders List</h1>
+      <Button onClick={handleOnClick}>View order</Button>
     </>
   );
 }
