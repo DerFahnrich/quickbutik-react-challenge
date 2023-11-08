@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getOrders } from "../../api/api";
-import { Button } from "../Button";
 import { IOrder, TableHeader, TableRow } from ".";
 
 import "./OrdersList.css";
@@ -10,12 +9,7 @@ export function OrdersList() {
 
   const getOrdersAsync = async () => {
     const orders: IOrder[] = await getOrders();
-    console.log(orders);
     setOrders(orders);
-  };
-
-  const handleOnClick = () => {
-    alert("Hey");
   };
 
   useEffect(() => {

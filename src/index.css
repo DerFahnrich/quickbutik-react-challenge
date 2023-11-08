@@ -15,7 +15,7 @@
   --accent-color: #f44599;
   --success-color: #20d287;
   --danger-color: #ff4259;
-  --grid-columns: 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  --grid-columns: 1fr 1fr 1fr 1fr 1fr 0.6fr;
 }
 
 .container {

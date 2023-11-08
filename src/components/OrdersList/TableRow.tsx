@@ -9,13 +9,13 @@ interface ITableRowProps {
 
 export const TableRow = ({ data }: ITableRowProps): JSX.Element => {
   const handleOnClick = () => {
-    console.log("Clicked: ", data.id);
+    alert(`The order with id ${data.id} has been clicked`);
   };
 
   return (
     <div className="table-row">
       <span className="table-cell">{data.id}</span>
-      <span className="table-cell">{data.created_at}</span>
+      <span className="table-cell">{new Date(data.created_at).toLocaleDateString()}</span>
       <span className="table-cell">
         {data.first_name} {data.last_name}
       </span>
@@ -25,7 +25,9 @@ export const TableRow = ({ data }: ITableRowProps): JSX.Element => {
           return (acc += curr.price);
         }, 0)}
       </span>
-      <Button onClick={handleOnClick}>View Order</Button>
+      <span className="table-cell">
+        <Button onClick={handleOnClick}>View Order</Button>
+      </span>
     </div>
   );
 };
