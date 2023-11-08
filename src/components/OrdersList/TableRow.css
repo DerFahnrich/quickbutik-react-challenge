@@ -1,0 +1,13 @@
+.table-row {
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+  padding-block: 5px;
+}
+
+.table-row:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.table-row .table-cell {
+  justify-self: center;
+}

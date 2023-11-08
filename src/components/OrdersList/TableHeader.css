@@ -1,0 +1,11 @@
+.table-header {
+  background-color: #eeeeee;
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+}
+
+.table-header .table-head {
+  font-weight: bolder;
+  justify-self: center;
+  margin-block: 5px;
+}

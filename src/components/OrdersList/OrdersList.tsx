@@ -1,28 +1,16 @@
-// use this function to fetch the orders.
 import { useEffect, useState } from "react";
 import { getOrders } from "../../api/api";
 import { Button } from "../Button";
+import { IOrder, TableHeader, TableRow } from ".";
 
-interface IProduct {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
-interface IOrder {
-  createdAt: string;
-  first_name: string;
-  id: number;
-  products: IProduct[];
-  status: string;
-}
+import "./OrdersList.css";
 
 export function OrdersList() {
   const [orders, setOrders] = useState<IOrder[] | null>(null);
 
   const getOrdersAsync = async () => {
     const orders: IOrder[] = await getOrders();
+    console.log(orders);
     setOrders(orders);
   };
 
@@ -34,10 +22,24 @@ export function OrdersList() {
     getOrdersAsync();
   }, []);
 
+  if (orders === null) {
+    return (
+      <>
+        <h1>Orders List</h1>
+        <div>Loading..</div>
+      </>
+    );
+  }
+
   return (
     <>
       <h1>Orders List</h1>
-      <Button onClick={handleOnClick}>View order</Button>
+      <div className="table-container">
+        <TableHeader />
+        {orders.map((order) => (
+          <TableRow data={order} key={order.id} />
+        ))}
+      </div>
     </>
   );
 }

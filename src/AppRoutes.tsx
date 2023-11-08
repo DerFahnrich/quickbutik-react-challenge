@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { OrdersList } from "./components/OrdersList/OrdersList";
+import { OrdersList } from "./components/OrdersList";
 
-export function AppRoutes(){
+export function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
